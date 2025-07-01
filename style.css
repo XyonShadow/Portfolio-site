@@ -142,7 +142,7 @@ body{
     box-shadow: 0 0 5px #0ef, 0 0 25px #0ef;
 }
 .btn-box:hover{
-    box-shadow: 0 0 5px cyan, 0 0 25px cyan, 0 0 50px cyan, 0 0 100px cyan, 0 0 200px cyan;
+    box-shadow: 0 0 5px cyan, 0 0 25px cyan, 0 0 50px cyan;
 }
 
     /*----------------------------------== About Section ==----------------------------------*/
@@ -190,7 +190,64 @@ body{
     margin-bottom: 4rem;
 }
 
-@keyframes slideRight{
+    /*----------------------------------== About Section ==----------------------------------*/
+    .services{
+        color: aliceblue;
+        font-size: 20px;
+        line-height: 1.4;
+        margin-bottom: 4rem;
+    }
+    
+    .container{
+        padding: 20px;
+    }
+
+    .sub-title{
+        text-align: center;
+        font-size: 60px;
+        padding-bottom: 70px;
+    }
+    .sub-title span{
+        color: #0ef;
+    }
+
+    .services-list{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 50px;
+        margin-top: 50px;
+    }
+    .services-list div{
+        background-color: transparent;
+        padding: 40px;
+        font-size: 15px;
+        font-weight: 15px;
+        border-right: 10px;
+        border-radius: 20px;
+        transition: background 0.5s, transfortm 0.5s;
+        box-shadow: 1px 1px 20px darkblue, 1px 1pc 40px lightskyblue;
+    }
+    .services-list div i{
+        font-size: 50px;
+        margin-bottom: 230px;
+    }
+    .services-list div h2{
+        font-size: 30px;
+        font-weight: 500;
+        margin-bottom: 15px;
+    }
+    .services-list div a{
+        text-decoration: none;
+        color: #000;
+        font-size: 12px;
+        margin-top: 20px;
+        display: inline-block;
+    }
+    .services-list div:hover{
+        transform: translateY(-10px);
+    }
+
+    @keyframes slideRight{
     0%{
         transform: translateX(-100px);
         opacity: 0;
