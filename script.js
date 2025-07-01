@@ -5,3 +5,5 @@ var typed = new Typed(".text", {
     backDelay: 1000,
     loop: true,
 })
+
+window.onscroll = () => document.querySelector(".header").classList.toggle("scrolled", window.scrollY>50)
