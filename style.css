@@ -149,7 +149,7 @@ body{
 .about{
     padding: 2%;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
     align-items: center;
     gap: 1.5rem;
 }
@@ -214,7 +214,7 @@ body{
 
 .services-list{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
     gap: 50px;
     margin-top: 50px;
 }
@@ -477,6 +477,76 @@ body{
     font-weight: 500;
     animation: showText 0.5s 1s linear forwards;
     opacity: 0;
+}
+
+/*----------------------------------== Projects Section ==----------------------------------*/
+.projects .projects-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+.projects .projects-content .row{
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.projects .projects-content .row img{
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+    transition: transform 0.5s;
+}
+
+.projects .projects-content .row .layer{
+    width: 100%;
+    height: 0;
+    background: linear-gradient(rgba(0,0,0,0.1), #0ef);
+    position: absolute;
+    border-radius: 8px;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 40px;
+    transition: height 0.5s;
+}
+.projects .projects-content .row .layer h5{
+    color: #0ef;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.projects .projects-content .row .layer p{
+    color: #000;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+.projects .projects-content .row .layer i{
+    color: #ff004f;
+    margin-top: 20px;
+    font-size: 20px;
+    background-color: #fff;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.projects .projects-content .row:hover img{
+    transform: scale(1.1);
+}
+.projects .projects-content .row:hover .layer{
+    height: 100%;
 }
 
 @keyframes slideRight{
