@@ -1,3 +1,27 @@
+:root{
+    --bg-color: #081b29;
+    --text-color: #ddd;
+    --header-bg1: transparent;
+    --header-bg: #4895cd;
+    --bg-white: #fff;
+    --cyan: #0ef;
+    --black: #000;
+    --semi-gray: rgba(100,100,100,0.1);
+    --footer-bg: #03131e;
+}
+
+    body.dark-mode{
+    --bg-color: #f4f4f4;
+    --text-color: #333;
+    --header-bg1: #5686a5;
+    --header-bg: #112e42;
+    --bg-white: #000;
+    --cyan: #6eaedb;
+    --black: #fff;
+    --semi-gray: #fff;
+    --footer-bg: #03131e;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -8,8 +32,9 @@
 }
 
 body{
-    color: #ededed;
-    background: #081b29;
+    color: var(--text-color);
+    background: var(--bg-color);
+    transition: background .4s ease, color .4s ease;
 }
 
 .header{
@@ -18,15 +43,17 @@ body{
     left: 0;
     width: 100%;
     height: 70px;
-    padding: 20px 5%;
-    background: transparent;
+    padding: 20px 30px 20px 5%;
+    border-bottom: 1px solid #555;
+    background: var(--header-bg1);
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 100;
+    transition: background 0.3s ease;
 }
 .header.scrolled{
-    background: #4895cd;
+    background: var(--header-bg);
 }
 
 .navbar{
@@ -37,7 +64,7 @@ body{
 .logo{
     position: relative;
     font-size: 25px;
-    color: #fff;
+    color: #ddd;
     text-decoration: none;
     font-weight: 600;
     cursor: default;
@@ -47,7 +74,7 @@ body{
     position: relative;
     display: inline-block;
     font-size: 20px;
-    color: #fff;
+    color: #ddd;
     text-decoration: none;
     font-weight: 500;
     transition: .3s;
@@ -63,7 +90,7 @@ body{
     position: absolute;
     left: 0;
     bottom: -4px;
-    height: 4px;
+    height: 3px;
     width: 0%;
     border-radius: 8px;
     background-color: #fff;
@@ -72,8 +99,72 @@ body{
 
 .navbar a.active{
     font-weight: bold;
-    color: #0ef;
+    color: var(--cyan);
 }
+
+    /*----------------------------------== Toggle Button ==---------------------------------*/
+.navbar div{
+    display: inline-flex;
+    gap: 5px;
+    width: fit-content;
+    align-items: center;
+    font-size: 19px;
+    opacity: 0;
+    animation: slideLeft .5s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+}
+.sun{
+    opacity: 0;
+    color: yellow;
+    transition: all .6s;
+}
+.moon{
+    color: purple;
+    transition: all .6s;
+}
+
+
+.switch{
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input{
+   display: none;
+}
+
+.slider{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #0f314af9;
+    transition: 0.4s;
+    border-radius: 24px;
+}
+.slider::before{
+    position: absolute;
+    content: '';
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .6s;
+    border-radius: 50%;
+}
+
+input:checked + .slider{
+    background-color: #6eaedb;
+}
+input:checked + .slider::before{
+    transform: translateX(26px);
+}
+
 
     /*----------------------------------== Home Section ==----------------------------------*/
 .home{
@@ -81,7 +172,7 @@ body{
     width: 100%;
     justify-content: space-between;
     height: 100vh;
-    background: #081b29;
+    background: var(--bg-color);
     display: flex;
     align-items: center;
     padding: 70px 10% 0;
@@ -105,7 +196,7 @@ body{
     
 }
 .home-content h3 span{
-    color:#0ef
+    color:var(--cyan)
 }
 
 .home-content h1{
@@ -131,33 +222,33 @@ body{
     width: 40px;
     height: 40px;
     background: transparent;
-    border: 2px solid #0ef;
+    border: 2px solid var(--cyan);
     border-radius: 50%;
     font-size: 20px;
-    color: #0ef;
+    color: var(--cyan);
     text-decoration: none;
     margin: 30px 15px 30px 0;
     transition: .5s ease;
     opacity: 0;
 }
 .home-sci a:hover{
-    background: #0ef;
-    color: #081b29;
-    box-shadow: 0 0 20px #0ef;
+    background: var(--cyan);
+    color: var(--bg-color);
+    box-shadow: 0 0 20px var(--cyan);
 }
 
 .btn-box{
     display: inline-block;
     padding: 12px 20px;
-    background: #0ef;
+    background: var(--cyan);
     border-radius: 40px;
     font-size: 16px;
-    color: #081b29;
+    color: var(--bg-color);
     letter-spacing: 1px;
     text-decoration: none;
     font-weight: 600;
     opacity: 0;
-    box-shadow: 0 0 5px #0ef, 0 0 25px #0ef;
+    box-shadow: 0 0 5px var(--cyan), 0 0 25px var(--cyan);
 }
 .btn-box:hover{
     box-shadow: 0 0 5px cyan, 0 0 25px cyan, 0 0 50px cyan;
@@ -233,17 +324,17 @@ body{
     font-size: 64px;
 }
 .about-text h2 span{
-    color: #0ef;
+    color: var(--cyan);
 }
 .about-text h4{
     font-size: 29px;
     font-weight: 600;
-    color: #fff;
+    color: var(--text-color);
     line-height: 1.7;
     margin: 15px 0 30px;
 }
 .about-text p{
-    color: aliceblue;
+    color: var(--text-color);
     font-size: 20px;
     line-height: 1.4;
     margin-bottom: 2rem;
@@ -251,7 +342,7 @@ body{
 
     /*----------------------------------== Services Section ==----------------------------------*/
 .services{
-    color: aliceblue;
+    color: var(--text-color);
     font-size: 20px;
     line-height: 1.4;
     margin-bottom: 4rem;
@@ -268,7 +359,7 @@ body{
     padding-bottom: 70px;
 }
 .sub-title span{
-    color: #0ef;
+    color: var(--cyan);
 }
 
 .services-list{
@@ -283,9 +374,9 @@ body{
     font-size: 15px;
     font-weight: 15px;
     border-right: 10px;
-    border-radius: 20px;
-    transition: background 0.5s, transfortm 0.5s;
-    box-shadow: 1px 1px 20px darkblue, 1px 1pc 40px lightskyblue;
+    border-radius: 20px 0 20px 0;
+    transition: background 0.5s, transform 0.5s;
+    box-shadow: 4px 4px 0px var(--semi-gray), inset 4px 4px 0px var(--semi-gray) ;
 }
 .services-list div i{
     font-size: 50px;
@@ -298,8 +389,8 @@ body{
 }
 .services-list div a{
     text-decoration: none;
-    color: #000;
-    font-size: 12px;
+    color: var(--black);
+    font-size: 14x;
     margin-top: 20px;
     display: inline-block;
 }
@@ -351,12 +442,12 @@ body{
     border-radius: 10px;
     width: 100%;
     height: 5px;
-    background-color: #000;
+    background-color: var(--black);
     transform-origin: left;
 }
 .technical-bars .bar .progress-line span{
     height: 100%;
-    background-color: #0ef;
+    background-color: var(--cyan);
     position: absolute;
     border-radius: 10px;
     transform: scaleX(0);
@@ -398,8 +489,8 @@ body{
 .progress-line span::after{
     position: absolute;
     padding: 1px 8px;
-    background: #000;
-    color: #fff;
+    background: var(--black);
+    color: var(--text-color);
     font-size: 12px;
     border-radius: 3px;
     top: -20px;
@@ -416,7 +507,7 @@ body{
     border: 7px solid transparent;
     border-bottom-width: 8px;
     border-right-width: 8px;
-    border-top-color: #000;
+    border-top-color: var(--black);
     top: -30px;
     right: 0;
     animation: showText 0;
@@ -462,7 +553,7 @@ body{
 
 .radial-bars .radial-bar .progress-bar{
     stroke-width: 10;
-    stroke: #000;
+    stroke: var(--black);
     fill: transparent;
     stroke-dasharray: calc(2*3.142*80);
     stroke-dashoffset: calc(2*3.142*80);
@@ -477,7 +568,7 @@ body{
 
 .path{
     stroke-width: 10;
-    stroke: #0ef;
+    stroke: var(--cyan);
     fill: transparent;
     stroke-dasharray: calc(2*3.142*80);
     stroke-dashoffset: calc(2*3.142*80);
@@ -545,7 +636,7 @@ body{
 .projects .projects-content .row .layer{
     width: 100%;
     height: 0;
-    background: linear-gradient(#0000001a, #0ef);
+    background: linear-gradient(#0000001a, var(--cyan));
     position: absolute;
     border-radius: 8px;
     left: 0;
@@ -560,21 +651,20 @@ body{
     transition: height 0.5s;
 }
 .projects .projects-content .row .layer h5{
-    color: #0ef;
+    color: var(--cyan);
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 15px;
 }
 .projects .projects-content .row .layer p{
-    color: #000;
+    color: var(--black);
     font-size: 1rem;
     line-height: 1.5;
 }
 .projects .projects-content .row .layer i{
-    color: #ff004f;
     margin-top: 20px;
     font-size: 20px;
-    background-color: #fff;
+    background-color: var(--bg-white);
     width: 60px;
     height: 60px;
     display: flex;
@@ -602,7 +692,7 @@ body{
 
 .contact .contact-text h4{
     margin: 15px 0;
-    color: #ddd;
+    color: var(--text-color);
     font-size: 20px;
     font-weight: 600;
 }
@@ -621,14 +711,14 @@ body{
 }
 .contact .contact-text .contact-list i{
     display: inline-block;
-    color: #0ef;
+    color: var(--cyan);
     font-size: 20px;
     font-weight: 600;
     transition: all .6 ease;
 }
 .contact .contact-text .contact-list li:hover{
     transform: scale(1.01) translateY(-.5px);
-    color: #0ef;
+    color: var(--cyan);
     cursor: pointer;
 }
 
@@ -642,24 +732,24 @@ body{
     width: 40px;
     height: 40px;
     background: transparent;
-    border: 2px solid #0ef;
+    border: 2px solid var(--cyan);
     border-radius: 50%;
     font-size: 20px;
-    color: #0ef;
+    color: var(--cyan);
     margin: 20px 15px 30px 0;
     transition: .5s ease;
     opacity: 0;
 }
 .contact .contact-text .contact-icons i:hover{
-    background: #0ef;
-    color: #000;
-    box-shadow: 0 0 20px #0ef;
+    background: var(--cyan);
+    color: var(--black);
+    box-shadow: 0 0 20px var(--cyan);
 }
 
 .contact .contact-box{
     border-radius: 1rem;
-    background-color: #fff;
-    padding: 30px 50px 0 50px;
+    background-color: var(--semi-gray);
+    padding: 30px 0px 0 50px;
     color: #4c677e;
 }
 
@@ -682,6 +772,7 @@ body{
     font-size: 14px;
     font-weight: 400;
     border-radius: 12px;
+    background-color: var(--semi-gray);
     border: .5px solid #181a1d1a;
     box-shadow: 0 0 0 1px transparent;
 }
@@ -707,14 +798,13 @@ body{
 }
 .contact .contact-box form .send{
     display: inline-block;
-    background: #4c677e;
+    background: var(--header-bg);
     border-radius: 40px;
     font-size: 19px;
-    color: #081b29;
+    color: var(--bg-color);
     letter-spacing: 1px;
     text-decoration: none;
     font-weight: 600;
-    opacity: 0;
     box-shadow: 0 0 0 1px transparent;
 }
 .contact .contact-box form .send:hover{
@@ -724,8 +814,7 @@ body{
 
   /*----------------------------------== Footer Section ==----------------------------------*/
 .footer{
-    background: #03131e;
-    color: #eee;
+    background: var(--footer-bg);
     padding: 30px 20px;
     text-align: center;
     font-size: 0.9rem;
@@ -737,7 +826,7 @@ body{
 }
 
 .footer a{
-    color: #eee;
+    color: #bbb;
     margin: 0 10px;
     text-decoration: none;
     transition: color 0.3s ease;
@@ -774,7 +863,7 @@ body{
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: #fff;
+    background-color: #bbb;
     transition: width 0.3s ease;
 }
 .footer-links a:hover::after{
@@ -801,6 +890,6 @@ body{
     transition: transform .5s;
 }
 .footer-icons a:hover{
-    color: #0ef;
+    color: var(--cyan);
     transform: scale(1.1);
 }

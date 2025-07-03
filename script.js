@@ -1,3 +1,22 @@
+// Toggle light/dark mode
+const toggleButton = document.querySelector(".toggle-button");
+const wrapper = document.querySelector(".toggle-wrapper");
+
+wrapper.addEventListener('click', ()=>{
+    toggleButton.checked = !toggleButton.checked;
+    // document.body.classList.toggle('dark-mode');
+    console.log(document.body.classList);
+    if(toggleButton.checked){
+        document.querySelector('.sun').style.opacity = '1';
+        document.querySelector('.moon').style.opacity = '0';
+        document.body.classList.add('dark-mode');
+    }else{
+        document.querySelector('.moon').style.opacity = '1';
+        document.querySelector('.sun').style.opacity = '0';
+        document.body.classList.remove('dark-mode');
+    }
+})
+
 // Typing animation
 var typed = new Typed(".text", {
     strings: ["Frontend Developer" , "Web Designer", "Freelancer"],
