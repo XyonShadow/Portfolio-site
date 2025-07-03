@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
+    scroll-padding-top: 70px;
     font-family: 'poppins', sans-serif;
 }
 
@@ -15,7 +17,8 @@ body{
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 10%;
+    height: 70px;
+    padding: 20px 5%;
     background: transparent;
     display: flex;
     justify-content: space-between;
@@ -23,7 +26,12 @@ body{
     z-index: 100;
 }
 .header.scrolled{
-    background:  #206190;
+    background: #1c4868;
+}
+
+.navbar{
+    display: flex;
+    gap: 20px;
 }
 
 .logo{
@@ -36,18 +44,34 @@ body{
 }
 
 .navbar a{
+    position: relative;
     display: inline-block;
-    font-size: 25px;
+    font-size: 20px;
     color: #fff;
     text-decoration: none;
     font-weight: 500;
-    margin-left: 35px;
     transition: .3s;
     opacity: 0;
     animation: slideUp .5s ease forwards;
     animation-delay: calc(.2s * var(--i));
 }
-.navbar a:hover{
+.navbar a:hover::after{
+    width: 100%;
+}
+.navbar a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 4px;
+    width: 0%;
+    border-radius: 8px;
+    background-color: #fff;
+    transition: width 0.3s ease;
+}
+
+.navbar a.active{
+    font-weight: bold;
     color: #0ef;
 }
 
@@ -287,7 +311,6 @@ body{
 .skills{
     display: flex;
     flex-direction: column;
-    gap: 3rem;
     align-items: center;
 }
 
