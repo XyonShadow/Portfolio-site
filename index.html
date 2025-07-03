@@ -233,14 +233,49 @@
         </div>
         <div class="contact-box">
             <form action="">
-                <input type="text" placeholder="Enter Your Name" required>
-                <input type="email" placeholder="Enter Your Email" required>
-                <input type="" placeholder="Enter Your Subject" required>
-                <textarea name="" id="" cols="40" rows="10" placeholder="Enter your Message" required></textarea>
+                <div class="details">
+                    <div>
+                        <label for="fullName">Name<span>*</span></label>
+                        <input type="text" id="fullName" placeholder="Enter Name" required>
+                    </div>
+                    <div>
+                        <label for="yourEmail">Email<span>*</span></label>
+                        <input type="email" id="yourEmail" placeholder="Enter Email" required>   
+                    </div>
+                    
+                </div>
+                
+                <label for="subject">Subject</label>
+                <input type="" id="subject" placeholder="Enter Your Subject">
+                
+                <label for="yourMessage">Message<span>*</span></label>
+                <textarea name="" id="yourMessage" cols="10" rows="7" placeholder="How we can help you?" required></textarea>
                 <input type="submit" value="Submit" class="send animate-on-scroll" data-animate="slideRight" data-delay=".7s">
             </form>
         </div>
     </section>
+
+    <!----------------------------------== Footer Section ==---------------------------------->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 XyonShadow. All rights reserved.</p>
+            <div class="footer-links">
+                <p>Explore</p>
+                <a href="#About">About Me</a>
+                <a href="#services">My Services</a>
+                <a href="#projects">Recent Projects</a>
+                <a href="#contact">Keep in touch</a>
+                <a href="https://github.com/XyonShadow" target="_blank">Github</a>
+            </div>
+        
+            <div class="footer-icons">
+                <a href="#"><i class="ri-github-fill"></i></a>
+                <a href="#"><i class="ri-linkedin-box-fill"></i></a>
+                <a href="#"><i class="ri-instagram-fill"></i></a>
+                <a href="#"><i class="ri-facebook-circle-fill"></i></a>
+            </div>
+        </div>
+    </footer>
 
 
 

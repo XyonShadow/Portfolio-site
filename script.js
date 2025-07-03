@@ -42,7 +42,7 @@ window.addEventListener("scroll", ()=>{
     let currentSection = "";
 
     sections.forEach(section => {
-        const sectionTop = section.offsetTop - 150 //Offset to account for header height
+        const sectionTop = section.offsetTop - 70 //Offset to account for header height
         const sectionHeight = section.offsetHeight;
 
         if(window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight){

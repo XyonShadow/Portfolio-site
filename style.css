@@ -4,7 +4,7 @@
     box-sizing: border-box;
     scroll-behavior: smooth;
     scroll-padding-top: 70px;
-    font-family: 'poppins', sans-serif;
+    font-family: 'aeonik-medium';
 }
 
 body{
@@ -26,7 +26,7 @@ body{
     z-index: 100;
 }
 .header.scrolled{
-    background: #1c4868;
+    background: #4895cd;
 }
 
 .navbar{
@@ -545,7 +545,7 @@ body{
 .projects .projects-content .row .layer{
     width: 100%;
     height: 0;
-    background: linear-gradient(rgba(0,0,0,0.1), #0ef);
+    background: linear-gradient(#0000001a, #0ef);
     position: absolute;
     border-radius: 8px;
     left: 0;
@@ -596,7 +596,7 @@ body{
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
     gap: 3rem;
-    padding-left: 30px;
+    padding: 0px 30px 30px 30px;
     margin-top: 130px;
 }
 
@@ -656,29 +656,58 @@ body{
     box-shadow: 0 0 20px #0ef;
 }
 
-.contact .contact-box form{
-    position: relative;
+.contact .contact-box{
+    border-radius: 1rem;
+    background-color: #fff;
+    padding: 30px 50px 0 50px;
+    color: #4c677e;
+}
+
+.contact .contact-box form .details{
+    display: flex;
+}
+.contact .contact-box form input{
+    margin-bottom: 32px;
+}
+.contact .contact-box form input::placeholder, textarea::placeholder{
+    color: #a2a6ade6;
+    font-size: 15px;
+    font-weight: 500;
+
 }
 .contact .contact-box form input, .contact .contact-box form textarea{
-    border: none;
     outline: none;
     width: 90%;
-    padding: 15px;
-    background: #555557;
-    color: #000;
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    border-radius: 0.5rem;
+    padding: 15px 24px;
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 12px;
+    border: .5px solid #181a1d1a;
+    box-shadow: 0 0 0 1px transparent;
+}
+.contact .contact-box form label{
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    align-items: baseline;
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+.contact .contact-box form label span{
+    font-size: 15px;
+    color: #666c0f;
 }
 .contact .contact-box textarea{
-    resize: none;
-    height: 250px;
+    margin-bottom: 10px;
+    min-width: 200px;
+    min-height: 70px;
+    max-height: 300px;
+    max-width: 450px;
 }
 .contact .contact-box form .send{
     display: inline-block;
-    padding: 12px 20px;
-    background: #0ef;
+    background: #4c677e;
     border-radius: 40px;
     font-size: 19px;
     color: #081b29;
@@ -686,8 +715,92 @@ body{
     text-decoration: none;
     font-weight: 600;
     opacity: 0;
-    box-shadow: 0 0 5px #0ef, 0 0 25px #0ef;
+    box-shadow: 0 0 0 1px transparent;
 }
 .contact .contact-box form .send:hover{
-    box-shadow: 0 0 5px cyan, 0 0 25px cyan, 0 0 50px cyan;
+    cursor: pointer;
+    background: #66829a;
+}
+
+  /*----------------------------------== Footer Section ==----------------------------------*/
+.footer{
+    background: #03131e;
+    color: #eee;
+    padding: 30px 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    border-top: 1px solid #333;
+}
+
+.footer p{
+    color: #646262;
+}
+
+.footer a{
+    color: #eee;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.footer a:hover{
+    color: #00bcd4;
+}
+
+.footer-content{
+    display: flex;
+    gap: 100px;
+    padding-left: 25px;
+}
+
+.footer-links{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: start;
+}
+.footer-links p{
+    font-size: 20px;
+    color: #e5d1d1;
+}
+
+.footer-links a{
+    position: relative;
+    width: fit-content;
+}
+.footer-links a::after{
+    position: absolute;
+    content: '';
+    height: 1px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff;
+    transition: width 0.3s ease;
+}
+.footer-links a:hover::after{
+    width: 0%;
+}
+.footer-links a:hover{
+    scale: 1.1;
+}
+
+.footer-icons{
+    align-self: end;
+    justify-self: end;
+}
+.footer-icons a{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    border: 2px solid #646363;
+    border-radius: 50%;
+    padding: 10px;
+    transition: transform .5s;
+}
+.footer-icons a:hover{
+    color: #0ef;
+    transform: scale(1.1);
 }
