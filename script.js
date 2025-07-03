@@ -56,12 +56,13 @@ document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(e
 // Add the 'active' class to the nav link whose section is currently in view
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll(".navbar a");
+const label = document.getElementById('active-label');
 
 window.addEventListener("scroll", ()=>{
     let currentSection = "";
 
     sections.forEach(section => {
-        const sectionTop = section.offsetTop - 70 //Offset to account for header height
+        const sectionTop = section.offsetTop - 80 //Offset to account for header height
         const sectionHeight = section.offsetHeight;
 
         if(window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight){
@@ -73,6 +74,25 @@ window.addEventListener("scroll", ()=>{
         link.classList.remove("active");
         if(link.getAttribute("href") === `#${currentSection}`){
             link.classList.add("active")
+            label.textContent = link.textContent; //Set hamburger label to active link
         }
     });
+});
+
+// Toggle nav menu when hamburger is clicked
+const hamburger = document.querySelector('.hamburger');
+const navbar = document.querySelector('.navbar');
+
+hamburger.addEventListener('click', ()=>{
+    navbar.classList.toggle('show');
+});
+// Hide nav menu on link click
+navLinks.forEach(link => {
+    link.addEventListener('click', ()=>{
+        navbar.classList.remove('show');
+    });
+});
+// Hide nav menu on scroll
+window.addEventListener('scroll', ()=>{
+    navbar.classList.remove('show');
 });

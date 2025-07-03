@@ -9,8 +9,7 @@
     --semi-gray: rgba(100,100,100,0.1);
     --footer-bg: #03131e;
 }
-
-    body.dark-mode{
+body.dark-mode{
     --bg-color: #f4f4f4;
     --text-color: #333;
     --header-bg1: #5686a5;
@@ -27,11 +26,12 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
-    scroll-padding-top: 70px;
+    scroll-padding-top: 4.5rem;
     font-family: 'aeonik-medium';
 }
 
 body{
+    width: 100%;
     color: var(--text-color);
     background: var(--bg-color);
     transition: background .4s ease, color .4s ease;
@@ -42,8 +42,8 @@ body{
     top: 0;
     left: 0;
     width: 100%;
-    height: 70px;
-    padding: 20px 30px 20px 5%;
+    height: 4.5rem;
+    padding: 1.25rem 3% 1.25rem 5%;
     border-bottom: 1px solid #555;
     background: var(--header-bg1);
     display: flex;
@@ -58,22 +58,52 @@ body{
 
 .navbar{
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap;
+    gap: 1.25rem;
 }
 
 .logo{
     position: relative;
-    font-size: 25px;
+    font-size: 1.6rem;
     color: #ddd;
     text-decoration: none;
     font-weight: 600;
     cursor: default;
 }
 
+.header-right{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#active-label{
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--cyan);
+    display: none;
+}
+
+.hamburger{
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 110;
+}
+.hamburger span{
+    display: block;
+    height: 3px;
+    width: 25px;
+    background: #ddd;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
 .navbar a{
     position: relative;
     display: inline-block;
-    font-size: 20px;
+    font-size: 1.25rem;
     color: #ddd;
     text-decoration: none;
     font-weight: 500;
@@ -89,10 +119,10 @@ body{
     content: '';
     position: absolute;
     left: 0;
-    bottom: -4px;
-    height: 3px;
+    bottom: -0.25rem;
+    height: 0.2rem;
     width: 0%;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     background-color: #fff;
     transition: width 0.3s ease;
 }
@@ -105,10 +135,10 @@ body{
     /*----------------------------------== Toggle Button ==---------------------------------*/
 .navbar div{
     display: inline-flex;
-    gap: 5px;
+    gap: 0.3rem;
     width: fit-content;
     align-items: center;
-    font-size: 19px;
+    font-size: 1.2rem;
     opacity: 0;
     animation: slideLeft .5s ease forwards;
     animation-delay: calc(.2s * var(--i));
@@ -123,12 +153,11 @@ body{
     transition: all .6s;
 }
 
-
 .switch{
     position: relative;
     display: inline-block;
-    width: 50px;
-    height: 24px;
+    width: 3rem;
+    height: 1.5rem;
 }
 
 .switch input{
@@ -144,15 +173,15 @@ body{
     bottom: 0;
     background-color: #0f314af9;
     transition: 0.4s;
-    border-radius: 24px;
+    border-radius: 1.5rem;
 }
 .slider::before{
     position: absolute;
     content: '';
-    height: 18px;
-    width: 18px;
-    left: 3px;
-    bottom: 3px;
+    height: 1rem;
+    width: 1rem;
+    left: 0.2rem;
+    bottom: 0.2rem;
     background-color: white;
     transition: .6s;
     border-radius: 50%;
@@ -162,24 +191,22 @@ input:checked + .slider{
     background-color: #6eaedb;
 }
 input:checked + .slider::before{
-    transform: translateX(26px);
+    transform: translateX(1.6rem);
 }
-
 
     /*----------------------------------== Home Section ==----------------------------------*/
 .home{
     position: relative;
     width: 100%;
-    justify-content: space-between;
+    display: grid;
     height: 100vh;
     background: var(--bg-color);
-    display: flex;
-    align-items: center;
-    padding: 70px 10% 0;
+    padding: 4.4rem 10% 0;
 }
 
 .home-content{
-    max-width: 600px;
+    max-width: 100vw;
+    padding-top: 15%;
 }
 
 .home-content h3{
@@ -190,7 +217,7 @@ input:checked + .slider::before{
     animation-delay: .7s;
 }
 .home-content h3:nth-of-type(2){
-    margin-bottom: 30px;
+    margin-bottom: 2rem;
     animation: slideUp 1s ease forwards;
     animation-delay: 1.2s;
     
@@ -202,14 +229,14 @@ input:checked + .slider::before{
 .home-content h1{
     font-size: 56px;
     font-weight: 700;
-    margin: -3px 0;
+    margin: -0.2rem 0;
     opacity: 0;
     animation: slideRight 1s ease forwards;
     animation-delay: 1s;
 }
 
 .home-content p{
-    font-size: 20px;
+    font-size: 1.25rem;
     opacity: 0;
     animation: slideLeft 1s ease forwards;
     animation-delay: .7s;
@@ -219,39 +246,41 @@ input:checked + .slider::before{
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 40px;
-    height: 40px;
+    width: 2.5rem;
+    height: 2.5rem;
     background: transparent;
     border: 2px solid var(--cyan);
     border-radius: 50%;
-    font-size: 20px;
+    font-size: 1.25rem;
     color: var(--cyan);
     text-decoration: none;
-    margin: 30px 15px 30px 0;
+    margin: 2rem 0.9rem 2rem 0;
     transition: .5s ease;
     opacity: 0;
+    animation: slideRight 1s ease forwards;
+    animation-delay: calc(.2s * var(--i));
 }
 .home-sci a:hover{
     background: var(--cyan);
     color: var(--bg-color);
-    box-shadow: 0 0 20px var(--cyan);
+    box-shadow: 0 0 1.25rem var(--cyan);
 }
 
 .btn-box{
     display: inline-block;
-    padding: 12px 20px;
+    padding: 0.75rem 1.25rem;
     background: var(--cyan);
-    border-radius: 40px;
-    font-size: 16px;
+    border-radius: 2.5rem;
+    font-size: 1rem;
     color: var(--bg-color);
-    letter-spacing: 1px;
+    letter-spacing: 0.1rem;
     text-decoration: none;
     font-weight: 600;
     opacity: 0;
-    box-shadow: 0 0 5px var(--cyan), 0 0 25px var(--cyan);
+    box-shadow: 0 0 0.3rem var(--cyan), 0 0 1.6rem var(--cyan);
 }
 .btn-box:hover{
-    box-shadow: 0 0 5px cyan, 0 0 25px cyan, 0 0 50px cyan;
+    box-shadow: 0 0 0.3rem cyan, 0 0 1.6rem cyan, 0 0 3rem cyan;
 }
 
 @keyframes slideRight{
@@ -297,31 +326,30 @@ input:checked + .slider::before{
 }
     /*----------------------------------== About Section ==----------------------------------*/
 .about{
+    margin: 0 auto;
     padding: 2%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     align-items: center;
-    gap: 1.5rem;
 }
 
 .about-img{
-    width: 500px;
-    height: 500px;
-    align-items: center;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow: 0 0 5px cyan, 0 0 25px cyan, 0 0 50px cyan;
-}
-.about-img img{
-    padding-bottom: 20%;
-    object-fit: cover;
-    max-width: 630px;
-    height: auto;
     width: 100%;
+    text-align: center;
+    height: fit-content;
+ }
+.about-img img{
+    object-fit: cover;
+    height: auto;
+    width: 40%;
+    width: 40%;
+    max-width: 300px;
+    border-radius: 50%;
+    box-shadow: 0 8px 20px cyan;
 }
 
 .about-text h2{
-    font-size: 64px;
+    font-size: 4rem;
 }
 .about-text h2 span{
     color: var(--cyan);
@@ -331,11 +359,11 @@ input:checked + .slider::before{
     font-weight: 600;
     color: var(--text-color);
     line-height: 1.7;
-    margin: 15px 0 30px;
+    margin: 0.9rem 0 2rem;
 }
 .about-text p{
     color: var(--text-color);
-    font-size: 20px;
+    font-size: 1.25rem;
     line-height: 1.4;
     margin-bottom: 2rem;
 }
@@ -343,20 +371,20 @@ input:checked + .slider::before{
     /*----------------------------------== Services Section ==----------------------------------*/
 .services{
     color: var(--text-color);
-    font-size: 20px;
+    font-size: .25rem;
     line-height: 1.4;
     margin-bottom: 4rem;
 }
 
 .container{
-    padding: 20px;
+    padding: 1.25rem;
 }
 
 .sub-title{
     margin-top: 1.5rem;
     text-align: center;
     font-size: 60px;
-    padding-bottom: 70px;
+    padding-bottom: 3rem;
 }
 .sub-title span{
     color: var(--cyan);
@@ -365,37 +393,36 @@ input:checked + .slider::before{
 .services-list{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, auto));
-    gap: 50px;
-    margin-top: 50px;
+    gap: 3rem;
+    margin-top: 3rem;
 }
 .services-list div{
     background-color: transparent;
-    padding: 40px;
-    font-size: 15px;
-    font-weight: 15px;
-    border-right: 10px;
-    border-radius: 20px 0 20px 0;
+    padding: 2.5rem;
+    font-size: 0.9rem;
+    font-weight: 0.9rem;
+    border-right: 0.6rem;
+    border-radius: 1.25rem 0 1.25rem 0;
     transition: background 0.5s, transform 0.5s;
-    box-shadow: 4px 4px 0px var(--semi-gray), inset 4px 4px 0px var(--semi-gray) ;
+    box-shadow: 0.25rem 0.25rem 0px var(--semi-gray), inset 0.25rem 0.25rem 0px var(--semi-gray) ;
 }
 .services-list div i{
-    font-size: 50px;
-    margin-bottom: 230px;
+    font-size: 3rem;
 }
 .services-list div h2{
-    font-size: 30px;
+    font-size: 2rem;
     font-weight: 500;
-    margin-bottom: 15px;
+    margin-bottom: 0.9rem;
 }
 .services-list div a{
     text-decoration: none;
     color: var(--black);
     font-size: 14x;
-    margin-top: 20px;
+    margin-top: 1.25rem;
     display: inline-block;
 }
 .services-list div:hover{
-    transform: translateY(-10px);
+    transform: translateY(-0.6rem);
 }
 
 /*----------------------------------== Skills Section ==----------------------------------*/
@@ -414,34 +441,35 @@ input:checked + .slider::before{
 .skills .container1{
     display: flex;
     flex-direction: column;
-    height: 500px;
-    gap: 30px;
+    height: fit-content;
+    gap: 2rem;
+    margin-bottom: 3rem;
 }
 
 .heading1{
     text-align: center;
     text-decoration: underline;
-    text-underline-offset: 10px;
-    text-decoration-thickness: 5px;
+    text-underline-offset: 0.6rem;
+    text-decoration-thickness: 0.3rem;
 }
 
 .technical-bars .bar{
     display: flex;
-    margin: 40px 0;
-    gap: 20px;
+    margin: 2.5rem 0;
+    gap: 1.25rem;
 }
 .technical-bars .bar:last-child{
     margin-bottom: 0;
 }
 .technical-bars .bar .info span, .technical-bars .bar i{
-    font-size: 17px;
+    font-size: 1rem;
     font-weight: 500;
 }
 .technical-bars .bar .progress-line{
     position: relative;
-    border-radius: 10px;
+    border-radius: 0.6rem;
     width: 100%;
-    height: 5px;
+    height: 0.3rem;
     background-color: var(--black);
     transform-origin: left;
 }
@@ -449,7 +477,7 @@ input:checked + .slider::before{
     height: 100%;
     background-color: var(--cyan);
     position: absolute;
-    border-radius: 10px;
+    border-radius: 0.6rem;
     transform: scaleX(0);
     transform-origin: left;
 }
@@ -488,13 +516,13 @@ input:checked + .slider::before{
 
 .progress-line span::after{
     position: absolute;
-    padding: 1px 8px;
+    padding: 0.1rem 0.5rem;
     background: var(--black);
     color: var(--text-color);
-    font-size: 12px;
-    border-radius: 3px;
-    top: -20px;
-    right: -10px;
+    font-size: 0.75rem;
+    border-radius: 0.2rem;
+    top: -1.25rem;
+    right: -0.6rem;
     animation: showText 0.5s 1.5s linear forwards;
     opacity: 0;
 }
@@ -505,10 +533,10 @@ input:checked + .slider::before{
     width: 0;
     height: 0;
     border: 7px solid transparent;
-    border-bottom-width: 8px;
-    border-right-width: 8px;
+    border-bottom-width: 0.5rem;
+    border-right-width: 0.5rem;
     border-top-color: var(--black);
-    top: -30px;
+    top: -2rem;
     right: 0;
     animation: showText 0;
 }
@@ -528,27 +556,24 @@ input:checked + .slider::before{
     }
 }
 
-.radial-bars{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+.radial-bars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    justify-items: center;
 }
 
-.radial-bars .radial-bar{
+.radial-bar {
     width: 50%;
-    height: 170px;
-    margin-bottom: 10px;
+    max-width: 280px;
+    text-align: center;
     position: relative;
 }
 
-.radial-bars .radial-bar svg{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-90deg);
-    width: 120px;
-    height: 360px;
+.radial-bar svg {
+    width: 100%;
+    transform: rotate(-90deg);
+    height: auto;
 }
 
 .radial-bars .radial-bar .progress-bar{
@@ -558,6 +583,20 @@ input:checked + .slider::before{
     stroke-dasharray: calc(2*3.142*80);
     stroke-dashoffset: calc(2*3.142*80);
     stroke-linecap: round;
+}
+
+.radial-bar .text {
+    font-weight: bold;
+    font-size: 1.1rem;
+    opacity: 0;
+    animation: showText 1s ease forwards;
+}
+
+.radial-bar .percentage {
+    margin-top: .7rem;
+    font-size: 1.4rem;
+    opacity: 0;
+    animation: showText 1s ease forwards;
 }
 
 @keyframes animate-bar{
@@ -601,34 +640,34 @@ input:checked + .slider::before{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 17px;
+    font-size: 1rem;
     font-weight: 500;
 }
 
 .radial-bar .text{
     text-align: center;
-    font-size: 17px;
+    font-size: 1rem;
     font-weight: 500;
 }
 
 /*----------------------------------== Projects Section ==----------------------------------*/
 .projects .projects-content{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    gap: 30px;
-    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    padding: 1.25rem;
 }
 
 .projects .projects-content .row{
     position: relative;
     overflow: hidden;
-    border-radius: 4px;
+    border-radius: 0.25rem;
     cursor: pointer;
 }
 
 .projects .projects-content .row img{
     width: 100%;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     display: block;
     transition: transform 0.5s;
 }
@@ -638,7 +677,7 @@ input:checked + .slider::before{
     height: 0;
     background: linear-gradient(#0000001a, var(--cyan));
     position: absolute;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     left: 0;
     bottom: 0;
     overflow: hidden;
@@ -647,14 +686,14 @@ input:checked + .slider::before{
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 0 40px;
+    padding: 0 2.5rem;
     transition: height 0.5s;
 }
 .projects .projects-content .row .layer h5{
     color: var(--cyan);
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 600;
-    margin-bottom: 15px;
+    margin-bottom: 0.9rem;
 }
 .projects .projects-content .row .layer p{
     color: var(--black);
@@ -662,8 +701,8 @@ input:checked + .slider::before{
     line-height: 1.5;
 }
 .projects .projects-content .row .layer i{
-    margin-top: 20px;
-    font-size: 20px;
+    margin-top: 1.25rem;
+    font-size: 1.25rem;
     background-color: var(--bg-white);
     width: 60px;
     height: 60px;
@@ -683,41 +722,41 @@ input:checked + .slider::before{
     /*----------------------------------== Contact Section ==----------------------------------*/
 .contact{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     align-items: center;
     gap: 3rem;
-    padding: 0px 30px 30px 30px;
+    padding: 0px 2rem 2rem 2rem;
     margin-top: 130px;
 }
 
 .contact .contact-text h4{
-    margin: 15px 0;
+    margin: 0.9rem 0;
     color: var(--text-color);
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 600;
 }
 .contact .contact-text p{
     color: #a29f9f;
-    font-size: 20px;
-    line-height: 30px;
+    font-size: 1.25rem;
+    line-height: 2rem;
     margin-bottom: 2rem;
 }
 .contact .contact-text li{
     text-decoration: none;
-    margin-bottom: 10px;
+    margin-bottom: 0.6rem;
     display: flex;
     width: fit-content;
-    gap: 5px;
+    gap: 0.3rem;
 }
 .contact .contact-text .contact-list i{
     display: inline-block;
     color: var(--cyan);
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 600;
     transition: all .6 ease;
 }
 .contact .contact-text .contact-list li:hover{
-    transform: scale(1.01) translateY(-.5px);
+    transform: scale(1.01) translateY(-.0.3rem);
     color: var(--cyan);
     cursor: pointer;
 }
@@ -729,27 +768,27 @@ input:checked + .slider::before{
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 40px;
-    height: 40px;
+    width: 2.5rem;
+    height: 2.5rem;
     background: transparent;
     border: 2px solid var(--cyan);
     border-radius: 50%;
-    font-size: 20px;
+    font-size: 1.25rem;
     color: var(--cyan);
-    margin: 20px 15px 30px 0;
+    margin: 1.25rem 0.9rem 2rem 0;
     transition: .5s ease;
     opacity: 0;
 }
 .contact .contact-text .contact-icons i:hover{
     background: var(--cyan);
     color: var(--black);
-    box-shadow: 0 0 20px var(--cyan);
+    box-shadow: 0 0 1.25rem var(--cyan);
 }
 
 .contact .contact-box{
     border-radius: 1rem;
     background-color: var(--semi-gray);
-    padding: 30px 0px 0 50px;
+    padding: 2rem 0 0 3rem;
     color: #4c677e;
 }
 
@@ -761,45 +800,45 @@ input:checked + .slider::before{
 }
 .contact .contact-box form input::placeholder, textarea::placeholder{
     color: #a2a6ade6;
-    font-size: 15px;
+    font-size: 0.9rem;
     font-weight: 500;
 
 }
 .contact .contact-box form input, .contact .contact-box form textarea{
     outline: none;
     width: 90%;
-    padding: 15px 24px;
-    font-size: 14px;
+    padding: 0.9rem 1.5rem;
+    font-size: 0.9rem;
     font-weight: 400;
-    border-radius: 12px;
+    border-radius: 0.75rem;
     background-color: var(--semi-gray);
-    border: .5px solid #181a1d1a;
+    border: 1px solid #181a1d1a;
     box-shadow: 0 0 0 1px transparent;
 }
 .contact .contact-box form label{
     display: flex;
-    gap: 5px;
+    gap: 0.3rem;
     flex-wrap: wrap;
     align-items: baseline;
     font-weight: 400;
-    font-size: 14px;
-    margin-bottom: 8px;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
 }
 .contact .contact-box form label span{
-    font-size: 15px;
+    font-size: 0.9rem;
     color: #666c0f;
 }
 .contact .contact-box textarea{
-    margin-bottom: 10px;
+    margin-bottom: 0.6rem;
     min-width: 200px;
-    min-height: 70px;
+    min-height: 4.4rem;
     max-height: 300px;
-    max-width: 450px;
+    max-width: 43rem;
 }
 .contact .contact-box form .send{
     display: inline-block;
     background: var(--header-bg);
-    border-radius: 40px;
+    border-radius: 2.5rem;
     font-size: 19px;
     color: var(--bg-color);
     letter-spacing: 1px;
@@ -815,7 +854,7 @@ input:checked + .slider::before{
   /*----------------------------------== Footer Section ==----------------------------------*/
 .footer{
     background: var(--footer-bg);
-    padding: 30px 20px;
+    padding: 2rem 1.25rem;
     text-align: center;
     font-size: 0.9rem;
     border-top: 1px solid #333;
@@ -827,7 +866,7 @@ input:checked + .slider::before{
 
 .footer a{
     color: #bbb;
-    margin: 0 10px;
+    margin: 0 0.6rem;
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -837,18 +876,19 @@ input:checked + .slider::before{
 
 .footer-content{
     display: flex;
-    gap: 100px;
-    padding-left: 25px;
+    gap: 50px;
+    flex-wrap: wrap;
+    padding-left: 1.6rem;
 }
 
 .footer-links{
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 0.9rem;
     text-align: start;
 }
 .footer-links p{
-    font-size: 20px;
+    font-size: 1.25rem;
     color: #e5d1d1;
 }
 
@@ -881,15 +921,42 @@ input:checked + .slider::before{
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.25rem;
     border: 2px solid #646363;
     border-radius: 50%;
-    padding: 10px;
+    padding: 0.6rem;
     transition: transform .5s;
 }
 .footer-icons a:hover{
     color: var(--cyan);
     transform: scale(1.1);
+}
+
+/* ------------------------== Navbar responsive behaviour ==------------------------ */
+@media (max-width: 768px) {
+    .navbar{
+        position: absolute;
+        background: linear-gradient(270deg, #081b29 0%,rgba(0, 188, 212, 0.5)50%, rgba(0, 188, 212, 0.3)75%, transparent 100%);
+        top: 100%;
+        left: 0;
+        width: 100%;
+        /* background: var(--header-bg); */
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 1.5rem;
+        padding: 1.5rem 2rem;
+        display: none;
+    }
+    .navbar.show{
+        display: flex
+    }
+
+    .hamburger{
+        display: flex;
+    }
+    #active-label{
+        display: flex;
+    }
 }
