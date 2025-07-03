@@ -33,8 +33,6 @@ body{
     text-decoration: none;
     font-weight: 600;
     cursor: default;
-    opacity: 0;
-    animation: slideRight 1s ease forwards;
 }
 
 .navbar a{
@@ -46,7 +44,7 @@ body{
     margin-left: 35px;
     transition: .3s;
     opacity: 0;
-    animation: slideTop .5s ease forwards;
+    animation: slideUp .5s ease forwards;
     animation-delay: calc(.2s * var(--i));
 }
 .navbar a:hover{
@@ -73,13 +71,13 @@ body{
     font-size: 32px;
     font-weight: 700;
     opacity: 0;
-    animation: slideBottom 1s ease forwards;
+    animation: slideDown 1s ease forwards;
     animation-delay: .7s;
 }
 .home-content h3:nth-of-type(2){
     margin-bottom: 30px;
-    animation: slideTop 1s ease forwards;
-    animation-delay: calc(.2s * var(--i));
+    animation: slideUp 1s ease forwards;
+    animation-delay: 1.2s;
     
 }
 .home-content h3 span{
@@ -117,8 +115,6 @@ body{
     margin: 30px 15px 30px 0;
     transition: .5s ease;
     opacity: 0;
-    animation: slideLeft 1s ease forwards;
-    animation-delay: calc(.2s * var(--i));
 }
 .home-sci a:hover{
     background: #0ef;
@@ -137,8 +133,6 @@ body{
     text-decoration: none;
     font-weight: 600;
     opacity: 0;
-    animation: slideTop 1s ease forwards;
-    animation-delay: 2s;
     box-shadow: 0 0 5px #0ef, 0 0 25px #0ef;
 }
 .btn-box:hover{
@@ -165,7 +159,7 @@ body{
         opacity: 1;
     }
 }
-@keyframes slideTop{
+@keyframes slideUp{
     0%{
         transform: translateY(100px);
         opacity: 0;
@@ -176,7 +170,7 @@ body{
     }
 }
 
-@keyframes slideBottom{
+@keyframes slideDown{
     0%{
         transform: translateY(-100px);
         opacity: 0;
@@ -328,8 +322,6 @@ body{
 .technical-bars .bar .info span, .technical-bars .bar i{
     font-size: 17px;
     font-weight: 500;
-    animation: showText 1s 1s linear forwards;
-    opacity: 0;
 }
 .technical-bars .bar .progress-line{
     position: relative;
@@ -337,8 +329,6 @@ body{
     width: 100%;
     height: 5px;
     background-color: #000;
-    animation: animate 1s cubic-bezier(1, 0, 0.5, 1) forwards;
-    transform: scaleX(0);
     transform-origin: left;
 }
 .technical-bars .bar .progress-line span{
@@ -346,7 +336,6 @@ body{
     background-color: #0ef;
     position: absolute;
     border-radius: 10px;
-    animation: animate 1s 1s cubic-bezier(0.6, 0.5, 0.7, 1) forwards;
     transform: scaleX(0);
     transform-origin: left;
 }
@@ -410,7 +399,10 @@ body{
     animation: showText 0;
 }
 
-@keyframes animate{
+@keyframes animate-cubic{
+    0%{
+         transform: scaleX(0);
+    }
     100%{
         transform: scaleX(1);
     }
@@ -452,7 +444,6 @@ body{
     stroke-dasharray: calc(2*3.142*80);
     stroke-dashoffset: calc(2*3.142*80);
     stroke-linecap: round;
-    animation: animate-bar 1s linear forwards;
 }
 
 @keyframes animate-bar{
@@ -469,11 +460,6 @@ body{
     stroke-dashoffset: calc(2*3.142*80);
     stroke-linecap: round;
 }
-.path-1{animation: animate-path1 1s 1s linear forwards;}
-.path-2{animation: animate-path2 1s 1s linear forwards;}
-.path-3{animation: animate-path3 1s 1s linear forwards;}
-.path-4{animation: animate-path4 1s 1s linear forwards;}
-.path-5{animation: animate-path5 1s 1s linear forwards;}
 
 @keyframes animate-path1{
     100%{
@@ -487,15 +473,10 @@ body{
 }
 @keyframes animate-path3{
     100%{
-        stroke-dashoffset: 150.8;
-    }
-}
-@keyframes animate-path4{
-    100%{
         stroke-dashoffset: 0;;
     }
 }
-@keyframes animate-path5{
+@keyframes animate-path4{
     100%{
         stroke-dashoffset: 125.55;
     }
@@ -508,16 +489,12 @@ body{
     transform: translate(-50%, -50%);
     font-size: 17px;
     font-weight: 500;
-    animation: showText 0.5s 1s linear forwards;
-    opacity: 0;
 }
 
 .radial-bar .text{
     text-align: center;
     font-size: 17px;
     font-weight: 500;
-    animation: showText 0.5s 1s linear forwards;
-    opacity: 0;
 }
 
 /*----------------------------------== Projects Section ==----------------------------------*/
@@ -649,8 +626,6 @@ body{
     margin: 20px 15px 30px 0;
     transition: .5s ease;
     opacity: 0;
-    animation: slideLeft 1s ease forwards;
-    animation-delay: calc(.2s * var(--i));
 }
 .contact .contact-text .contact-icons i:hover{
     background: #0ef;
@@ -688,7 +663,6 @@ body{
     text-decoration: none;
     font-weight: 600;
     opacity: 0;
-    animation: slideTop 1s 1s ease forwards;
     box-shadow: 0 0 5px #0ef, 0 0 25px #0ef;
 }
 .contact .contact-box form .send:hover{
